@@ -5,6 +5,7 @@ import App from './App.jsx'
 import './index.css'
 import Book from './components/books/Book.jsx'
 import LoginRegister from './components/loginregister/LoginRegister.jsx'
+import Blog from './components/blogs/Blog.jsx'
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/loginregister",
     element: <LoginRegister />
+  },
+  {
+    path: "/blog",
+    element: <Blog />
   }
 ])
 

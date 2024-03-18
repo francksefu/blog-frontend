@@ -33,7 +33,7 @@ const Content = () => {
     }
   ];
   const listBooks = books.map((book) => 
-    <div key={book.id} className="border border-1 p-3 mt-2 row shadow bg-light estonia-regular rounded">
+    <div key={book.id} className="border cursor border-1 p-3 mt-2 row shadow bg-light estonia-regular rounded">
       <div className="col-md-4">
         <h1>
           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
@@ -44,7 +44,7 @@ const Content = () => {
         <h6 className="font-n">author : {book.author}</h6>
       </div>
       
-      <div className="col-md-6 cursor" onClick={() => { handleBook(book);}}>
+      <div className="col-md-6" onClick={() => { handleBook(book);}}>
         <h5 className="font-s">{book.title}</h5>
         <p className="p-3">{book.content.slice(0, 150) + '...'}</p>
       </div>

@@ -26,7 +26,7 @@ const Navbar = () => {
             </svg>
           </h1>
           Your name
-          <div className="bg-light p-3">
+          <div className="bg-light p-3 hide">
             <ul className="mt-2 mb-2">
               <li className="pt-3 pb-3 border-bottom">
                 <Link to="/" className="text-dark">Your profile</Link>

@@ -3,7 +3,7 @@ const Register = ({handleClick}) => {
     <div>
       <form className="p-4">
         <div className="mb-3">
-          <label htmlFor="name" className="form-label">Email address</label>
+          <label htmlFor="name" className="form-label">Your names</label>
           <input type="name" className="form-control" id="name" placeholder="name" />
         </div>
         <div className="mb-3 mt-3">

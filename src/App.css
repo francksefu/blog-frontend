@@ -78,3 +78,7 @@ a:hover {
 .cursor {
   cursor: pointer;
 }
+
+.jaune {
+  background-color: #b87f18;
+}

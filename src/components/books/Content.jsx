@@ -3,9 +3,9 @@ const Content = () => {
     const book = JSON.parse(bookjs);
     return(
       <div className="container-fluid fond-white p-3 ">
-        <div className="row">
-          <div className="col-md-2"> </div>
-          <div className="col-md-8 shadow bg-light">
+        <div className="row mt-3">
+          <div className="col-md-2 mt-3"> </div>
+          <div className="col-md-8 shadow bg-light mt-3">
             <div className="estonia-regular">
               <h1 className="mt-3 mb-3">{book.title}</h1>
               <p className="p-3 border border-1">
