@@ -53,3 +53,28 @@ img {
 .renverse-1 {
   transform: rotate(30deg);
 }
+
+.back-beige {
+  background-color: #214946;
+}
+
+.fond-white {
+  background-image: radial-gradient(circle, #b87f18,  black);
+}
+
+.mettre {
+  justify-items: end;
+}
+
+a:hover {
+  background-color: #214946;
+  color : white
+}
+
+.hide {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}

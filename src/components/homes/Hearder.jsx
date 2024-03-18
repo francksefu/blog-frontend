@@ -1,13 +1,13 @@
 import Book1 from '../images/livreh2.png';
 import Book2 from '../images/livreh3.png';
 import Book3 from '../images/livreh5.png';
-const Hearder = () => {
+const Hearder = ({classname= 'container-fluid fond p-3 text-light'}) => {
   return(
-    <div className="container-fluid fond p-3 text-light">
-      <div className="row">
-        <div className="col-md-5 row">
+    <div className={classname}>
+      <div className="row mt-3">
+        <div className="col-md-5 row mt-3">
           <img
-            className="img-fluid col-md-5 shadow p-0"
+            className="img-fluid col-md-5 shadow p-0 mt-3"
             src={Book1}
             alt="book picture"
           />
@@ -19,7 +19,7 @@ const Hearder = () => {
           />
         </div>
         <div className="col-md-1"> </div>
-        <div className="col-md-5">
+        <div className="col-md-5 mt-3">
           <h1 className="some">Here you can write a blog, or share with us everything you want,</h1>
           <h1 className="some">like the resume of your last book</h1>
         </div>

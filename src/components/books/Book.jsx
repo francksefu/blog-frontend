@@ -1,4 +1,5 @@
 import Navbar from "../Navbar/Navbar";
+import Comment from "./Comment";
 import Content from "./Content";
 
 const Book = () => {
@@ -7,6 +8,8 @@ const Book = () => {
     <>
       <Navbar />
       <Content />
+      <Comment />
+      <Foot />
     </>
   );
 }
