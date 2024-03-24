@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 body {
   font-weight: 50;
 }
@@ -73,6 +76,11 @@ a:hover {
 
 .hide {
   display: none;
+}
+
+#usermenu {
+  width: 0;
+  transition: width 0.75s;
 }
 
 .cursor {

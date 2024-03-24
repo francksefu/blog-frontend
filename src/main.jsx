@@ -1,11 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { Provider } from 'react-redux'
 import App from './App.jsx'
 import './index.css'
 import Book from './components/books/Book.jsx'
 import LoginRegister from './components/loginregister/LoginRegister.jsx'
 import Blog from './components/blogs/Blog.jsx'
+import { store } from './components/redux/store.js'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store} >
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>,
 )
