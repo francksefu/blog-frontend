@@ -20,11 +20,11 @@ const Register = ({handleClick}) => {
     }
     dispatch(registerUser(obj))
     .then(() => {
-      navigate('/');
+      
     })
     .catch((err) => {
       console.error('Register Error:', err);
-      navigate('/login');
+      navigate('/loginRegister');
     });
     setdataregister({...dataregister, name: '', description: '', email: '', password: ''});
   }

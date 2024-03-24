@@ -79,6 +79,7 @@ a:hover {
 }
 
 #usermenu {
+  display: none;
   width: 0;
   transition: width 0.75s;
 }

@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 
 const Navbar = () => {
   const resourceOwner = useSelector((state) => state.user.resourceOwner);
   const [showDetail, setShowDetail] = useState(false);
+  let navigate = useNavigate();
   const handleShowUsermenu = () => {
     if (showDetail) {
       document.querySelector('#usermenu').style.width = '0px';
@@ -16,6 +17,12 @@ const Navbar = () => {
       setShowDetail(true);
     }
    
+  }
+
+  const handleLogOut = () => {
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("resourceOwner");
+    location.reload();
   }
   return (
     <div className="container-fluid bg-transparent text-white position-fixed">
@@ -57,6 +64,9 @@ const Navbar = () => {
                 </li>
                 <li className="pt-3 pb-3 border-bottom">
                   <Link to="/" className="text-dark">Add blog</Link>
+                </li>
+                <li className="pt-3 pb-3 border-bottom">
+                  <div className="text-dark" onClick={handleLogOut}>Log out</div>
                 </li>
               </ul>
             </div>
