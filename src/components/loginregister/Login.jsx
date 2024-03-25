@@ -4,7 +4,6 @@ import { loginUser } from "../redux/users/usersSlice";
 import { useNavigate } from "react-router-dom";
 
 const Login = ({handleClick}) => {
-  const resourceOwner = useSelector((state) => state.user.resourceOwner);
   const loading = useSelector((state) => state.user.loading);
   let navigate = useNavigate()
   const dispatch = useDispatch()
@@ -34,18 +33,6 @@ const Login = ({handleClick}) => {
     );
   }
   
-  if(resourceOwner) {
-    return(
-      <div className="mt-3 p-3">
-        <p className="border-start p-2">
-          Now it's possible to write article!
-          Welcome {resourceOwner.email}
-          Has you can see the navigation bar change for you,
-          We are happy to be here with you!
-        </p>
-      </div>
-    );
-  }
   return(
     <div>
       <form  className="p-4">

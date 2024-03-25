@@ -1,3 +1,4 @@
+import Foot from "../../Foot";
 import Navbar from "../Navbar/Navbar";
 import AddBlog from "./AddBlog";
 
@@ -6,6 +7,7 @@ const Blog = () => {
     <>
       <Navbar />
       <AddBlog />
+      <Foot />
     </>
   );
 }

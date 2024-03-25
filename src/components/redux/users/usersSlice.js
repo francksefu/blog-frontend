@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-  accessToken: '',
+  accessToken: JSON.parse(localStorage.getItem("accessToken")),
   refreshToken: '',
   resourceOwner: JSON.parse(localStorage.getItem("resourceOwner")),
   message: '',

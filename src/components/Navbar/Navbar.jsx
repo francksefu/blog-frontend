@@ -1,11 +1,22 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { getdescrition } from "../redux/users/descriptionSlice";
 
 const Navbar = () => {
+  
   const resourceOwner = useSelector((state) => state.user.resourceOwner);
+  const accessToken = useSelector((state) => state.user.accessToken)
   const [showDetail, setShowDetail] = useState(false);
   let navigate = useNavigate();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (resourceOwner) {
+      dispatch(getdescrition({access: accessToken}));
+    }
+  }, [dispatch]);
+
+  const name = useSelector((state) => state.description.name);
   const handleShowUsermenu = () => {
     if (showDetail) {
       document.querySelector('#usermenu').style.width = '0px';
@@ -35,7 +46,7 @@ const Navbar = () => {
             <Link to="/">Home</Link>
           </li>
           <li className="ps-3 pe-3">
-            {!resourceOwner? (<Link to="/loginregister"> Login </Link>) : (<Link to="/loginregister"> Add blog </Link>)}
+            {!resourceOwner? (<Link to="/loginregister"> Login </Link>) : (<Link to="/blog"> Add blog </Link>)}
           </li>
           <li className="ps-3 pe-3">
             <Link to="/">Authors</Link>
@@ -50,7 +61,7 @@ const Navbar = () => {
                 <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
               </svg>
             </h1>
-            {resourceOwner.email}
+            {name}
             </div>
             
            
@@ -64,14 +75,14 @@ const Navbar = () => {
                   <Link to="/" className="text-dark">Your blogs</Link>
                 </li>
                 <li className="pt-3 pb-3 border-bottom">
-                  <Link to="/" className="text-dark">Add blog</Link>
+                  <Link to="/blog" className="text-dark">Add blog</Link>
                 </li>
                 <li className="pt-3 pb-3 border-bottom">
                   <div className="text-dark" onClick={handleLogOut}>Log out</div>
                 </li>
               </ul>
             </div>
-            
+           
           </div>
         )}
       

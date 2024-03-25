@@ -24,12 +24,12 @@ export const createDescriptionUser = createAsyncThunk('user/description', async 
   return response.data;
  });
 
- export const getdescrition = createAsyncThunk('user/getDescription', async(thunkAPI) => {
+ export const getdescrition = createAsyncThunk('user/getDescription', async(description,thunkAPI) => {
   try {
     const response = await axios.get(`${API_URL}/get_description`, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`
+        Authorization: `Bearer ${description.access}`,
       }
     });
     return response.data;
