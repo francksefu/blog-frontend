@@ -3,13 +3,13 @@ import Paragraph from "./Paragraph";
 import { v4 as uuidv4 } from 'uuid';
 
 const AddBlog = () => {
-  const handleRemoveParagraph = (e) => {
-    paragraph.filter((oneparagraph) => oneparagraph.id !== e.id)
-  }
-  const [paragraph, setParagraph] = useState([{content: (<Paragraph />), id: uuidv4()}])
+  const [titlePost, setTitlePost] = useState('');
+  let iniid = uuidv4();
+  const [paragraph, setParagraph] = useState([{content: (<Paragraph id={iniid} post={titlePost} />), id: iniid}])
   
   const handleAddParaph = () => {
-    setParagraph([...paragraph, {content: (<Paragraph />), id: uuidv4()}])
+    let id = uuidv4();
+    setParagraph([...paragraph, {content: (<Paragraph id={id} post={titlePost} />), id: id}])
   }
 
   return(
@@ -19,13 +19,19 @@ const AddBlog = () => {
         <form  className="p-4 col-md-8">
           <div  className="mb-3">
             <label htmlFor="title"  className="form-label">Title</label>
-            <input type="text"  className="form-control" id="title" placeholder="Title for blog" />
+            <input type="text"  className="form-control" onChange={(e) => {setTitlePost(e.target.value)}} placeholder="Title for blog" />
           </div>
           <div id="pragraph">
             {paragraph.map((oneparagraph) => (
-                <div className="border-bottom mb-2 p-2">
-                  {oneparagraph.content}
-                  <button className="btn btn-danger" onClick={() => setParagraph(paragraph.filter((onepara) => onepara.id !== oneparagraph.id))}> delete </button>
+                <div className="border-bottom mb-2 p-2" key={oneparagraph.id}>
+                  {oneparagraph.content} <br />
+                  
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => {
+                      setParagraph(paragraph.filter((onepara) => onepara.id !== oneparagraph.id));
+                      localStorage.removeItem(oneparagraph.id)
+                    }}> delete </button>
                 </div>
               ))
             }
