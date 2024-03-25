@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-const Paragraph = ({id, post}) => {
-  const [titleContent, setTitleContent] = useState({title: '', content: '', id: id, post: post});
+const Paragraph = ({id, access}) => {
+  const [titleContent, setTitleContent] = useState({title: '', content: '', id: id, access: access});
   //localStorage.removeItem("localParagraphs")
   const handleContent = () => {
     localStorage.setItem(id, JSON.stringify(titleContent));
