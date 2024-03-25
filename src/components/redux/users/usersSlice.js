@@ -2,7 +2,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-  users: {},
   accessToken: '',
   refreshToken: '',
   resourceOwner: JSON.parse(localStorage.getItem("resourceOwner")),
@@ -20,6 +19,7 @@ export const loginUser = createAsyncThunk('user/login', async (user) => {
   });
   localStorage.setItem("resourceOwner", JSON.stringify(response.data.resource_owner));
   localStorage.setItem("refreshToken", JSON.stringify(response.data.refresh_token));
+  localStorage.setItem("accessToken", JSON.stringify(response.data.token));
   return response.data;
  });
 
@@ -30,7 +30,7 @@ export const loginUser = createAsyncThunk('user/login', async (user) => {
     password: user.password,
     password_confirmation: user.password,
   });
-  
+ 
   localStorage.setItem("resourceOwner", JSON.stringify(response.data.resource_owner));
   localStorage.setItem("refreshToken", JSON.stringify(response.data.refresh_token));
   localStorage.setItem("accessToken", JSON.stringify(response.data.token));

@@ -22,6 +22,7 @@ const Navbar = () => {
   const handleLogOut = () => {
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("resourceOwner");
+    localStorage.removeItem("accessToken");
     location.reload();
   }
   return (

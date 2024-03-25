@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../redux/users/usersSlice";
 import { useNavigate } from "react-router-dom";
+import { createDescriptionUser } from "../redux/users/descriptionSlice";
 
 const Register = ({handleClick}) => {
   const resourceOwner = useSelector((state) => state.user.resourceOwner);
@@ -11,19 +12,31 @@ const Register = ({handleClick}) => {
   const [dataregister, setdataregister] = useState({
     name: '', description: '', email: '', password: ''
   });
-  const handleSubmit = (e) => {
+  const [message, setMesage] = useState('');
+  const handleSubmit = async(e) => {
     e.preventDefault();
     let obj = {
       name: dataregister.name,
       email: dataregister.email,
+      description: dataregister.description,
       password: dataregister.password
     }
-    dispatch(registerUser(obj))
+    await dispatch(registerUser(obj))
     .then(() => {
-      
+    
     })
     .catch((err) => {
       console.error('Register Error:', err);
+      setMesage('Register Error: '+ err)
+      navigate('/loginRegister');
+    });
+     await dispatch(createDescriptionUser({name: obj.name, description: obj.description, access: JSON.parse(localStorage.getItem("accessToken"))}))
+    .then(() => {
+     
+    })
+    .catch((err) => {
+      console.error('Description Error:', err);
+      setMesage('Description Error: '+ err)
       navigate('/loginRegister');
     });
     setdataregister({...dataregister, name: '', description: '', email: '', password: ''});
@@ -43,6 +56,7 @@ const Register = ({handleClick}) => {
           Welcome {resourceOwner.email}
           Has you can see the navigation bar change for you,
           We are happy to be here with you!
+          {message}
         </p>
       </div>
     );
@@ -51,6 +65,7 @@ const Register = ({handleClick}) => {
   return(
     <div>
       <form className="p-4">
+        {message}
         <div className="mb-3">
           <label htmlFor="name" className="form-label">Your names</label>
           <input
