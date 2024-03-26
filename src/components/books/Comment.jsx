@@ -15,7 +15,8 @@ const Comment = () => {
     e.preventDefault();
     dispatch(createComment(comment))
     .then(() => {
-      
+      setMessage('send with success');
+     location.reload();
     })
     .catch((err) => {
       console.error('Comment Error:', err);
@@ -67,6 +68,7 @@ const Comment = () => {
                 }}
               ></textarea>
             </div>
+            {message}
             <button type="submit" onClick={handleSubmit} className="btn btn-primary bleu"> Send </button>
           </form>
         </div>
