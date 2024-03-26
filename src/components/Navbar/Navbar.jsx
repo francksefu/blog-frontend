@@ -13,6 +13,7 @@ const Navbar = () => {
   useEffect(() => {
     if (resourceOwner) {
       dispatch(getdescrition({access: accessToken}));
+      console.log(accessToken)
     }
   }, [dispatch]);
 

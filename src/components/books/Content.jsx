@@ -8,11 +8,18 @@ const Content = () => {
           <div className="col-md-8 shadow bg-light mt-3">
             <div className="estonia-regular">
               <h1 className="mt-3 mb-3">{book.title}</h1>
-              <p className="p-3 border border-1">
-                {book.content}
-                <br />
-                author : {book.author}
-              </p>
+              <div className="p-3 border border-1">
+                {book.paragraphs.map((paragraph) => (
+                  <div key={paragraph.id} className="mt-2 mb-3">
+                    <h6 className="estonia-regular text-center">{paragraph.title}</h6>
+                    <p>
+                      {paragraph.content}
+                    </p>
+                  </div>
+                ))}
+              </div>
+             
+              author : {book.user.email}
             </div>
             <div className="d-flex flex-row bd-highlight justify-content-center">
               <div className="p-2 bd-highlight">

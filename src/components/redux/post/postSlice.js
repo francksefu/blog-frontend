@@ -4,6 +4,7 @@ import axios from 'axios';
 const initialState = {
   title: '',
   paragraphs: [],
+  blogs: [],
   isLoading: false
 }
 
@@ -24,7 +25,7 @@ export const createPost = createAsyncThunk('user/post', async (post) => {
   return response.data;
  });
 
- export const createParagraph = createAsyncThunk('post/paragraph', async (paragraph, access) => {
+ export const createParagraph = createAsyncThunk('post/paragraph', async (paragraph) => {
     console.log();
     const response = await axios.post(`${API_URL}/paragraphs`, {
       title: paragraph.title,
@@ -39,12 +40,11 @@ export const createPost = createAsyncThunk('user/post', async (post) => {
     return response.data;
    });
 
- export const getdescrition = createAsyncThunk('user/getpost', async(post,thunkAPI) => {
+ export const getPosts = createAsyncThunk('user/getpost', async(thunkAPI) => {
   try {
-    const response = await axios.get(`${API_URL}/get_post`, {
+    const response = await axios.get(`${API_URL}/posts`, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${post.access}`,
       }
     });
     return response.data;
@@ -77,15 +77,14 @@ export const postSlice = createSlice({
         ...state,
         isLoading: false,
       }))
-      .addCase(getdescrition.pending, (state) => ({
+      .addCase(getPosts.pending, (state) => ({
         ...state,
         isLoading: true,
       }))
-      .addCase(getdescrition.fulfilled, (state, action) => ({
+      .addCase(getPosts.fulfilled, (state, action) => ({
         ...state,
         isLoading: false,
-        name: action.payload.name,
-        post: action.payload.post
+        blogs: action.payload,
       }))
       
   },

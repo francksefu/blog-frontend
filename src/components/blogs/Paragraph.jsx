@@ -22,7 +22,7 @@ const Paragraph = ({id, access}) => {
         />
       </div>
       <div className="mb-3 mt-3">
-        <label htmlFor="content" className="form-label">How can you describe your self? write below</label>
+        <label htmlFor="content" className="form-label">Content of your paragraph, write below</label>
         <textarea
           className="form-control"
           rows="3"

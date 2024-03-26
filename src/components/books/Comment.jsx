@@ -10,16 +10,17 @@ const Comment = () => {
           <form className="p-3">
             <div className="mt-3">
               <label for="email" className="form-label">Email address</label>
-              <input type="email" className="form-control" id="email" placeholder="name@example.com" />
+              <input type="email" required className="form-control" id="email" placeholder="name@example.com" />
             </div>
             <div className="mb-3 mt-3">
               <label for="name" className="form-label">Your name or your nick name</label>
-              <input type="text" className="form-control" id="name" placeholder=" first name" />
+              <input type="text" required className="form-control" id="name" placeholder=" first name" />
             </div>
             <div className="mb-3 mt-3">
               <label for="content" className="form-label">write your comment now</label>
-              <textarea className="form-control" id="content" rows="3"></textarea>
+              <textarea className="form-control" required id="content" rows="3"></textarea>
             </div>
+            <button className="btn btn-primary bleu"> Send </button>
           </form>
         </div>
         <div className="col-md-1"> </div>
