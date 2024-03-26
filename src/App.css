@@ -3,7 +3,7 @@
 }
 
 #desk {
-  display: flex;
+  display: block;
 }
 
 #mobile {
