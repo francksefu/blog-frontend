@@ -19,7 +19,9 @@ const Content = () => {
   }
 
   const listBooks = blogs.map((blog) => 
-    <ListBlog blog={blog} />
+    <div key={blog.id}>
+      <ListBlog blog={blog} />
+    </div>
   );
   
   return(

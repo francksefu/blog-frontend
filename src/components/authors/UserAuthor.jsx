@@ -14,7 +14,6 @@ const UserAuthor = () => {
   }, [dispatch]);
   const authors = useSelector((state) => state.user.users);
   const resourceOwner = useSelector((state) => state.user.resourceOwner)
-  console.log(resourceOwner)
   if(loading) {
     return <h1>Loading ...</h1>
   }

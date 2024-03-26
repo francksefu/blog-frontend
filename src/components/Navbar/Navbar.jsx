@@ -10,12 +10,10 @@ const Navbar = () => {
   const resourceOwner = useSelector((state) => state.user.resourceOwner);
   const accessToken = useSelector((state) => state.user.accessToken)
   const [showDetail, setShowDetail] = useState(false);
-  let navigate = useNavigate();
   
   useEffect(() => {
     if (resourceOwner) {
       dispatch(getdescrition({access: accessToken}));
-      console.log(accessToken)
     }
   }, [dispatch]);
  
@@ -119,7 +117,7 @@ const Navbar = () => {
               <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
             </svg>
           </h1>
-          <div id="menu-mobile" className="chocolat">
+          <div id="menu-mobile" className="chocolat pe-2">
             <ul className=" mb-3">
               <li className="pt-3 pb-3 border-bottom">
                 <Link to="/">Home</Link>
@@ -144,7 +142,7 @@ const Navbar = () => {
                   </svg>
                 </h1>
                 <strong className="ps-3"> {name} </strong>
-                <ul className="pt-2 pb-2">
+                <ul className="pt-2 pb-2 pe-2">
                   <li className="pt-3 pb-3 border-bottom">
                     <Link to="/userblogs" className="text-light">Your profil</Link>
                   </li>
