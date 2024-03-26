@@ -3,21 +3,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getdescrition } from "../redux/users/descriptionSlice";
 
+
 const Navbar = () => {
+  const dispatch = useDispatch();
   
   const resourceOwner = useSelector((state) => state.user.resourceOwner);
   const accessToken = useSelector((state) => state.user.accessToken)
   const [showDetail, setShowDetail] = useState(false);
   let navigate = useNavigate();
-  const dispatch = useDispatch();
+  
   useEffect(() => {
     if (resourceOwner) {
       dispatch(getdescrition({access: accessToken}));
       console.log(accessToken)
     }
   }, [dispatch]);
-
+ 
   const name = useSelector((state) => state.description.name);
+  
+
   const handleShowUsermenu = () => {
     if (showDetail) {
       document.querySelector('#usermenu').style.width = '0px';

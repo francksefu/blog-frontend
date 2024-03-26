@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const initialState = {
   accessToken: JSON.parse(localStorage.getItem("accessToken")),
-  refreshToken: '',
+  refreshToken: JSON.parse(localStorage.getItem("refreshToken")),
   resourceOwner: JSON.parse(localStorage.getItem("resourceOwner")),
   message: '',
   isLoading: false,
@@ -39,6 +39,7 @@ export const loginUser = createAsyncThunk('user/login', async (user) => {
   return response.data;
   
  });
+
 
  export const getUsers = createAsyncThunk('user/getUser', async(thunkAPI) => {
   try {
@@ -98,6 +99,7 @@ export const usersSlice = createSlice({
         users: action.payload,
       }))
       
+     
   },
 });
 
