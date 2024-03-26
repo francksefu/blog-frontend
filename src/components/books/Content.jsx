@@ -19,6 +19,7 @@ const Content = () => {
       return <h1>Wait ...</h1>;
     }
     return(
+      <>
       <div className="container-fluid fond-white p-3 ">
         <div className="row mt-3">
           <div className="col-md-2 mt-3"> </div>
@@ -55,8 +56,17 @@ const Content = () => {
           </div>
           <div className="col-md-2"> </div>
         </div>
-        
+        <div className="mt-3 col-md-5 text-white">
+          {blog.comments && blog.comments.map((comment) => (
+            <div className="mt-3 mb-3  border-bottom ">
+              <h6>{comment.name}</h6>
+              <p className="ps-3">{comment.content}</p>
+            </div>
+          ))}
+        </div>
       </div>
+      
+      </>
     );
   }
   
