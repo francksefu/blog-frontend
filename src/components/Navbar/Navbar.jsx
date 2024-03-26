@@ -50,7 +50,7 @@ const Navbar = () => {
             {!resourceOwner? (<Link to="/loginregister"> Login </Link>) : (<Link to="/blog"> Add blog </Link>)}
           </li>
           <li className="ps-3 pe-3">
-            <Link to="/">Authors</Link>
+            <Link to="/authors">Authors</Link>
           </li>
         </ul>
         {resourceOwner && (

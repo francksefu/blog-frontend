@@ -8,6 +8,8 @@ import Book from './components/books/Book.jsx'
 import LoginRegister from './components/loginregister/LoginRegister.jsx'
 import Blog from './components/blogs/Blog.jsx'
 import { store } from './components/redux/store.js'
+import Authors from './components/authors/Authors.jsx'
+import AuthorBlogs from './components/authors/AuthorBlogs.jsx'
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
   {
     path: "/blog",
     element: <Blog />
+  },
+  {
+    path: "/authors",
+    element: <Authors />
+  },
+  {
+    path: "/authorblogs",
+    element: <AuthorBlogs />
   }
 ])
 

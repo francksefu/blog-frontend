@@ -65,6 +65,19 @@ export const getPost = createAsyncThunk('user/getpost', async(post_id, thunkAPI)
     }
   });
 
+  export const getUserPosts = createAsyncThunk('user/getuserposts', async(user_id, thunkAPI) => {
+    try {
+      const response = await axios.get(`${API_URL}/users/${user_id}`, {
+        headers: {
+          "Content-Type": "application/json",
+        }
+      });
+      return response.data;
+    } catch(e) {
+      return thunkAPI.rejectWithValue('sorry something went wrong');
+    }
+  });
+
 export const postSlice = createSlice({
   name: 'post',
   initialState,
@@ -106,6 +119,15 @@ export const postSlice = createSlice({
         ...state,
         isLoading: false,
         blog: action.payload,
+      }))
+      .addCase(getUserPosts.pending, (state) => ({
+        ...state,
+        isLoading: true,
+      }))
+      .addCase(getUserPosts.fulfilled, (state, action) => ({
+        ...state,
+        isLoading: false,
+        blogs: action.payload,
       }))
   },
 });

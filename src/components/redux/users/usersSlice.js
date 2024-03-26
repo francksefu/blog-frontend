@@ -7,10 +7,12 @@ const initialState = {
   resourceOwner: JSON.parse(localStorage.getItem("resourceOwner")),
   message: '',
   isLoading: false,
-  error: {}
+  error: {},
+  users: [],
 };
 
-const URL = 'http://127.0.0.1:3000/users/tokens'
+const URL = 'http://127.0.0.1:3000/users/tokens';
+const API_URL = 'http://127.0.0.1:3000';
 
 export const loginUser = createAsyncThunk('user/login', async (user) => {
   const response = await axios.post(`${URL}/sign_in`, {
@@ -38,6 +40,18 @@ export const loginUser = createAsyncThunk('user/login', async (user) => {
   
  });
 
+ export const getUsers = createAsyncThunk('user/getUser', async(thunkAPI) => {
+  try {
+    const response = await axios.get(`${API_URL}/users`, {
+      headers: {
+        "Content-Type": "application/json",
+      }
+    });
+    return response.data;
+  } catch(e) {
+    return thunkAPI.rejectWithValue('sorry something went wrong');
+  }
+});
 //
 
 export const usersSlice = createSlice({
@@ -73,9 +87,16 @@ export const usersSlice = createSlice({
         ...state,
         isLoading: false,
         error: {...state.error, error: action.payload},
-        type: action.type
       }))
-      
+      .addCase(getUsers.pending, (state) => ({
+        ...state,
+        isLoading: true,
+      }))
+      .addCase(getUsers.fulfilled, (state, action) => ({
+        ...state,
+        isLoading: false,
+        users: action.payload,
+      }))
       
   },
 });

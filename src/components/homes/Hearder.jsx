@@ -1,7 +1,7 @@
 import Book1 from '../images/livreh2.png';
 import Book2 from '../images/livreh3.png';
 import Book3 from '../images/livreh5.png';
-const Hearder = ({classname= 'container-fluid fond p-3 text-light'}) => {
+const Hearder = ({classname= 'container-fluid fond-white p-3 text-light'}) => {
   return(
     <div className={classname}>
       <div className="row mt-3">
