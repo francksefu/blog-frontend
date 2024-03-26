@@ -70,10 +70,7 @@ const Navbar = () => {
             <div className="bg-light p-3" id="usermenu" >
               <ul className="pt-2 pb-2">
                 <li className="pt-3 pb-3 border-bottom">
-                  <Link to="/" className="text-dark">Your profile</Link>
-                </li>
-                <li className="pt-3 pb-3 border-bottom">
-                  <Link to="/" className="text-dark">Your blogs</Link>
+                  <Link to="/userblogs" className="text-dark">Your profil</Link>
                 </li>
                 <li className="pt-3 pb-3 border-bottom">
                   <Link to="/blog" className="text-dark">Add blog</Link>

@@ -10,6 +10,7 @@ import Blog from './components/blogs/Blog.jsx'
 import { store } from './components/redux/store.js'
 import Authors from './components/authors/Authors.jsx'
 import AuthorBlogs from './components/authors/AuthorBlogs.jsx'
+import UserAuthor from './components/authors/UserAuthor.jsx'
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "/authorblogs",
     element: <AuthorBlogs />
+  },
+  {
+    path: "/userblogs",
+    element: <UserAuthor />
   }
 ])
 
