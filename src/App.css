@@ -1,6 +1,14 @@
 * {
   box-sizing: border-box;
 }
+
+#desk {
+  display: flex;
+}
+
+#mobile {
+  display: none;
+}
 body {
   font-weight: 50;
 }
@@ -90,4 +98,29 @@ a:hover {
 
 .jaune {
   background-color: #b87f18;
+}
+
+#menu-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  #desk {
+    display: none;
+  }
+
+  #mobile {
+    display: block;
+  }
+  
+  .renverse-1, .renverse {
+    transform: none;
+  }
+
+  #cross {
+    display: none;
+  }
+  .hide-mobile {
+    display: none;
+  }
 }

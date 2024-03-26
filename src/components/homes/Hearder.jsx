@@ -13,7 +13,7 @@ const Hearder = ({classname= 'container-fluid fond-white p-3 text-light'}) => {
           />
 
           <img
-            className="img-fluid col-md-5 renverse shadow p-0"
+            className="img-fluid col-md-5 renverse shadow p-0 hide-mobile"
             src={Book2}
             alt="book picture"
           />

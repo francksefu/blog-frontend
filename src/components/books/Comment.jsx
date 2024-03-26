@@ -73,14 +73,14 @@ const Comment = () => {
           </form>
         </div>
         <div className="col-md-1"> </div>
-        <div className="col-md-5 row p-1">
+        <div className="col-md-5 row ">
           <img
-            className="img-fluid col-md-5 shadow p-0"
+            className="img-fluid col-md-5 shadow p-0 hide-mobile"
             src={Image4}
             alt="book picture"
           />
           <img
-            className="img-fluid col-md-5 shadow p-0 renverse"
+            className="img-fluid col-md-5 shadow p-0 renverse mt-2"
             src={Image5}
             alt="book picture"
           />
