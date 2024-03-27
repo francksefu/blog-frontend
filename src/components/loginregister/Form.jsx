@@ -10,12 +10,7 @@ const Form = () => {
   let dispatch = useDispatch();
   const accessToken = useSelector((state) => state.user.accessToken);
   const resourceOwner = useSelector((state) => state.user.resourceOwner);
-  useEffect(() => {
-    if (resourceOwner) {
-      dispatch(getdescrition({access: accessToken}));
-    }
-  }, [dispatch]);
-
+  
   const name = useSelector((state) => state.description.name);
   if(resourceOwner) {
     return(

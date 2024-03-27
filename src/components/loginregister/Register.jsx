@@ -15,6 +15,7 @@ const Register = ({handleClick}) => {
   const [message, setMesage] = useState('');
   const handleSubmit = async(e) => {
     e.preventDefault();
+    localStorage.setItem("nameUser", JSON.stringify(dataregister.name));
     let obj = {
       name: dataregister.name,
       email: dataregister.email,
