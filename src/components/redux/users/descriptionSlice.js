@@ -6,7 +6,7 @@ const initialState = {
   description: '',
   isLoading: false
 }
-
+//const API_URL = 'http://127.0.0.1:3000';
 const API_URL = 'https://blog-4a5w.onrender.com';
 
 export const createDescriptionUser = createAsyncThunk('user/description', async (description) => {
@@ -29,9 +29,10 @@ export const createDescriptionUser = createAsyncThunk('user/description', async 
     const response = await axios.get(`${API_URL}/get_description`, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${description.access}`,
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("accessToken"))}`,
       }
     });
+    console.log('okay okay');
     localStorage.setItem("nameUser", JSON.stringify(response.data.name));
     return response.data;
   } catch(e) {
