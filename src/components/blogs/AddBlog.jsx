@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { createParagraph, createPost } from "../redux/post/postSlice";
 
 const AddBlog = () => {
-  const accessToken = useSelector((state) => state.user.accessToken);
   let dispatch = useDispatch();
+  const accessToken = JSON.parse(localStorage.getItem("accessToken"));
   const [titlePost, setTitlePost] = useState('');
   const [message, setMessage] = useState('');
   let iniid = uuidv4();
@@ -43,19 +43,23 @@ const AddBlog = () => {
         setMessage('Post Error: '+ err)
       });
     }
-    document.getElementById('title').value = '';
     setParagraph([]);
   }
 
   return(
     <div className="container-fluid p-3 fond-white text-light">
-      <div className="mt-3">{message}</div>
+      <div className="mt-3 text-danger">{message}</div>
       <div className="row mt-3">
         <div className="col-md-2"> </div>
         <form  className="p-4 col-md-8">
           <div  className="mb-3">
             <label htmlFor="title"  className="form-label">Title</label>
-            <input type="text" id="title" className="form-control" onChange={(e) => {setTitlePost(e.target.value)}} placeholder="Title for blog" />
+            <input type="text"
+              className="form-control"
+              onChange={(e) => {setTitlePost(e.target.value)}}
+              placeholder="Title for blog"
+              value={titlePost}
+            />
           </div>
           <div id="pragraph">
             {paragraph.map((oneparagraph) => (

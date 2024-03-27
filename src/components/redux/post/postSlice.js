@@ -20,7 +20,7 @@ export const createPost = createAsyncThunk('user/post', async (post) => {
       Authorization: `Bearer ${post.access}`,
     }
   });
- 
+  console.log(response.data)
   return response.data;
  });
 

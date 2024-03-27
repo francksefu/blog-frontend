@@ -13,7 +13,6 @@ const Paragraph = ({id, access}) => {
         <label htmlFor="sub-title"  className="form-label">Sub title</label>
         <input type="text"
           className="form-control"
-          id="sub-title"
           placeholder="title for paragraph"
           onChange={(e) => {
             setTitleContent({...titleContent, title: e.target.value})
