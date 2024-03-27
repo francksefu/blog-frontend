@@ -45,7 +45,7 @@ export const descriptionsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-     
+    
       .addCase(createDescriptionUser.pending, (state) => ({
         ...state,
         isLoading: true,
@@ -57,6 +57,10 @@ export const descriptionsSlice = createSlice({
       .addCase(getdescrition.pending, (state) => ({
         ...state,
         isLoading: true,
+      }))
+      .addCase(getdescrition.rejected, (state) => ({
+        ...state,
+        isLoading: false,
       }))
       .addCase(getdescrition.fulfilled, (state, action) => ({
         ...state,
