@@ -14,7 +14,7 @@ const Form = () => {
   
   if(resourceOwner) {
     useEffect(() => {
-      dispatch(getdescrition())
+      dispatch(getdescrition({access: accessToken}))
     }, [dispatch])
     const name = useSelector((state) => state.description.name);
     const loadName = useSelector((state) => state.description.isLoading);
