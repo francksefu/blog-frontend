@@ -53,7 +53,7 @@ const Content = () => {
         </div>
         <div className="mt-3 col-md-5 text-white">
           {blog.comments && blog.comments.map((comment) => (
-            <div className="mt-3 mb-3  border-bottom ">
+            <div className="mt-3 mb-3 border-bottom " key={comment.id}>
               <h6>{comment.name}</h6>
               <p className="ps-3">{comment.content}</p>
             </div>

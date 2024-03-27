@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-  name: '',
+  name: JSON.parse(localStorage.getItem("nameUser")),
   description: '',
   isLoading: false
 }
@@ -32,6 +32,7 @@ export const createDescriptionUser = createAsyncThunk('user/description', async 
         Authorization: `Bearer ${description.access}`,
       }
     });
+    localStorage.setItem("nameUser", JSON.stringify(response.data.name));
     return response.data;
   } catch(e) {
     return thunkAPI.rejectWithValue('sorry something went wrong');

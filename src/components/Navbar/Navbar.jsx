@@ -1,21 +1,12 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { getdescrition } from "../redux/users/descriptionSlice";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useState } from "react";
 
 
 const Navbar = () => {
-  const dispatch = useDispatch();
-  
   const resourceOwner = useSelector((state) => state.user.resourceOwner);
-  const accessToken = useSelector((state) => state.user.accessToken)
   const [showDetail, setShowDetail] = useState(false);
-  
-  useEffect(() => {
-    if (resourceOwner) {
-      dispatch(getdescrition({access: accessToken}));
-    }
-  }, [dispatch]);
+
  
   const name = useSelector((state) => state.description.name);
   
@@ -51,6 +42,7 @@ const Navbar = () => {
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("resourceOwner");
     localStorage.removeItem("accessToken");
+    //navigate('/');
     location.reload();
   }
   return (

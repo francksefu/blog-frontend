@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../redux/users/usersSlice";
 import { useNavigate } from "react-router-dom";
-import { createDescriptionUser } from "../redux/users/descriptionSlice";
+import { createDescriptionUser, getdescrition } from "../redux/users/descriptionSlice";
 
 const Register = ({handleClick}) => {
-  const resourceOwner = useSelector((state) => state.user.resourceOwner);
+  const accessToken = useSelector((state) => state.user.accessToken);
   const loading = useSelector((state) => state.user.loading);
   let navigate = useNavigate()
   const dispatch = useDispatch()
@@ -23,7 +23,7 @@ const Register = ({handleClick}) => {
     }
     await dispatch(registerUser(obj))
     .then(() => {
-    
+      dispatch(getdescrition({access: accessToken}));
     })
     .catch((err) => {
       console.error('Register Error:', err);
@@ -48,19 +48,7 @@ const Register = ({handleClick}) => {
     );
   }
   
-  if(resourceOwner) {
-    return(
-      <div className="mt-3 p-3">
-        <p className="border-start p-2">
-          Now it's possible to write article!
-          Welcome {resourceOwner.email}
-          Has you can see the navigation bar change for you,
-          We are happy to be here with you!
-          {message}
-        </p>
-      </div>
-    );
-  }
+  
 
   return(
     <div>

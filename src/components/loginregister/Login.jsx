@@ -2,9 +2,11 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../redux/users/usersSlice";
 import { useNavigate } from "react-router-dom";
+import { getdescrition } from "../redux/users/descriptionSlice";
 
 const Login = ({handleClick}) => {
   const loading = useSelector((state) => state.user.loading);
+  const accessToken = useSelector((state) => state.user.accessToken);
   let navigate = useNavigate()
   const dispatch = useDispatch()
   const [dataregister, setdataregister] = useState({
@@ -18,6 +20,7 @@ const Login = ({handleClick}) => {
     }
     dispatch(loginUser(obj))
     .then(() => {
+      dispatch(getdescrition({access: accessToken}));
       navigate('/');
     })
     .catch((err) => {
