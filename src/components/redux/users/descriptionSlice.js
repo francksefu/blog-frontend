@@ -7,7 +7,7 @@ const initialState = {
   isLoading: false
 }
 
-const API_URL = 'http://127.0.0.1:3000';
+const API_URL = 'https://blog-4a5w.onrender.com';
 
 export const createDescriptionUser = createAsyncThunk('user/description', async (description) => {
   console.log(description.access);

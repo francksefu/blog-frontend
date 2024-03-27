@@ -6,7 +6,7 @@ const initialState = {
   isLoading: false
 }
 
-const API_URL = 'http://127.0.0.1:3000';
+const API_URL = 'https://blog-4a5w.onrender.com';
 
 export const createComment = createAsyncThunk('user/comment', async (comment) => {
   
@@ -52,7 +52,7 @@ export const commentSlice = createSlice({
         ...state,
         isLoading: false,
       }))
-      
+     
       .addCase(getComments.pending, (state) => ({
         ...state,
         isLoading: true,
