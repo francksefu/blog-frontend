@@ -8,12 +8,12 @@ const initialState = {
 }
 
 const API_URL = 'https://blog-4a5w.onrender.com';
+//const API_URL = 'http://127.0.0.1:3000';
 
 export const createPost = createAsyncThunk('user/post', async (post) => {
   console.log(post.access);
   const response = await axios.post(`${API_URL}/posts`, {
     title: post.title,
-    paragraphs: post.paragraphs
   },{
     headers: {
       "Content-Type": "application/json",

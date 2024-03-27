@@ -7,6 +7,7 @@ const initialState = {
 }
 
 const API_URL = 'https://blog-4a5w.onrender.com';
+//const API_URL = 'http://127.0.0.1:3000';
 
 export const createComment = createAsyncThunk('user/comment', async (comment) => {
   
