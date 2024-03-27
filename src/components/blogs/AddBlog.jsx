@@ -18,6 +18,7 @@ const AddBlog = () => {
   }
   const tab = [];
   const handleSubmit = async(e) => {
+    setMessage('');
     e.preventDefault();
     paragraph.map((para) => {
       tab.push(JSON.parse(localStorage.getItem(para.id)))
@@ -26,6 +27,7 @@ const AddBlog = () => {
     await dispatch(createPost(obj))
     .then(() => {
       setTitlePost('');
+      setMessage('Your blog is add');
     })
     .catch((err) => {
       console.error('Post Error:', err);
@@ -47,6 +49,7 @@ const AddBlog = () => {
 
   return(
     <div className="container-fluid p-3 fond-white text-light">
+      <div className="mt-3">{message}</div>
       <div className="row mt-3">
         <div className="col-md-2"> </div>
         <form  className="p-4 col-md-8">

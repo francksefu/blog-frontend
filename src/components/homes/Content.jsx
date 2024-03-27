@@ -9,7 +9,7 @@ const Content = () => {
   let dispatch = useDispatch();
   useEffect(()=>{
     dispatch(getPosts())
-  }, []);
+  }, [dispatch]);
 
   const blogs = useSelector((state) => state.post.blogs);
   const loading = useSelector((state) => state.post.isLoading);

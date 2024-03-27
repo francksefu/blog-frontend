@@ -111,7 +111,7 @@ const Navbar = () => {
               <li className="pt-3 pb-3 border-bottom">
                 <Link to="/">Home</Link>
               </li>
-              
+             
                 {!resourceOwner&& (
                   <li className="pt-3 pb-3 border-bottom">
                     <Link to="/loginregister"> Login </Link>
@@ -130,7 +130,7 @@ const Navbar = () => {
                     <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
                   </svg>
                 </h1>
-                <strong className="ps-3"> {name} </strong>
+                <strong className="ps-3"> {name ? name : JSON.parse(localStorage.getItem("nameUser"))} </strong>
                 <ul className="pt-2 pb-2 pe-2">
                   <li className="pt-3 pb-3 border-bottom">
                     <Link to="/userblogs" className="text-light">Your profil</Link>
