@@ -42,7 +42,7 @@ const Navbar = () => {
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("resourceOwner");
     localStorage.removeItem("accessToken");
-    //navigate('/');
+    localStorage.removeItem("nameUser");
     location.reload();
   }
   return (
