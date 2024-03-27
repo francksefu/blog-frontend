@@ -20,7 +20,7 @@ export const createDescriptionUser = createAsyncThunk('user/description', async 
       Authorization: `Bearer ${description.access}`,
     }
   });
- 
+  localStorage.setItem("nameUser", JSON.stringify(response.data.name));
   return response.data;
  });
 

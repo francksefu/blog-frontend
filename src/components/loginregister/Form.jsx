@@ -8,16 +8,12 @@ import { useEffect } from "react";
 const Form = () => {
   const [registerForm, setRegisterForm] = useState(false);
   const resourceOwner = useSelector((state) => state.user.resourceOwner);
-  const name = useSelector((state) => state.description.name);
-  const loadName = useSelector((state) => state.description.isLoading);
+  const name = JSON.parse(localStorage.getItem("nameUser"));
   const accessToken = useSelector((state) => state.user.accessToken);
   let dispatch = useDispatch();
   useEffect(() => {
     dispatch(getdescrition({access: accessToken}));
-  }, [dispatch])
-  if(loadName) {
-    return <h1>Wait please ... </h1>;
-  }
+  }, [])
   
   if(resourceOwner) {
     return(

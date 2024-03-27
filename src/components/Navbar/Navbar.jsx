@@ -8,7 +8,7 @@ const Navbar = () => {
   const [showDetail, setShowDetail] = useState(false);
 
  
-  const name = useSelector((state) => state.description.name);
+  const name = JSON.parse(localStorage.getItem("nameUser"));
   
 
   const handleShowUsermenu = () => {
