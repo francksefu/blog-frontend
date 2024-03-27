@@ -10,6 +10,7 @@ const Form = () => {
   const resourceOwner = useSelector((state) => state.user.resourceOwner);
   const name = useSelector((state) => state.description.name);
   const loadName = useSelector((state) => state.description.isLoading);
+  const accessToken = useSelector((state) => state.user.accessToken);
   let dispatch = useDispatch();
   useEffect(() => {
     dispatch(getdescrition({access: accessToken}));
