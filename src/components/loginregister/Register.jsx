@@ -25,6 +25,7 @@ const Register = ({handleClick}) => {
     await dispatch(registerUser(obj))
     .then(() => {
       dispatch(getdescrition({access: accessToken}));
+      navigate('/');
     })
     .catch((err) => {
       console.error('Register Error:', err);

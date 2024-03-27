@@ -7,20 +7,10 @@ import { useEffect } from "react";
 
 const Form = () => {
   const [registerForm, setRegisterForm] = useState(false);
-  let dispatch = useDispatch();
-  const accessToken = useSelector((state) => state.user.accessToken);
   const resourceOwner = useSelector((state) => state.user.resourceOwner);
-  
+  const name = useSelector((state) => state.description.name);
   
   if(resourceOwner) {
-    useEffect(() => {
-      dispatch(getdescrition({access: accessToken}))
-    }, [dispatch])
-    const name = useSelector((state) => state.description.name);
-    const loadName = useSelector((state) => state.description.isLoading);
-    if(loadName) {
-      return <h1>Wait please ...</h1>
-    }
     return(
       <div className="container-fluid fond-white text-white p-3">
         <div className="row mt-3 p-3">
